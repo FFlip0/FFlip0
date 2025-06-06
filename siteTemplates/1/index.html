@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css3?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         :root {
@@ -92,7 +92,10 @@
             color: var(--muted-text);
             font-style: italic;
         }
-
+          
+	blockquote p {
+	    margin: 0;
+	}
         /* Forms */
         input[type="text"],
         input[type="email"],
@@ -344,9 +347,7 @@
     <div class="container">
         <main>
             <nav class="main-nav">
-                <div class="nav-left">
-                    {{ page.path }}
-                </div>
+                <div class="nav-left">{{ page.path }}</div>
                 <div class="nav-right">
                     <a href="#" class="home-btn">
                         <span class="material-icons">home</span>
@@ -359,11 +360,9 @@
                 </div>
                 <aside class="sidebar-right">
                     <nav class="toc">
-                        <p>on this page</p>
-                        <ul class="toc-list">
-                            <!-- TOC -->
-                        </ul>
-                    </nav>
+			<p>on this page</p>
+			<ul class="toc-list"><!-- TOC --></ul>
+		    </nav>
                 </aside>
                 </div>
             </div>

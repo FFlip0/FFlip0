@@ -1,25 +1,37 @@
 Write-Host "to run the script press ENTER" -ForegroundColor Red
+
 pause
-mkdir electronApp
-cd electronApp
+
+New-Item electron-app -ItemType Directory
+
+Set-Location electron-app
+
 npm init -y
+
 npm i electron --save-dev
-ni main.js
-sc main.js "const { app, BrowserWindow } = require('electron');
+
+New-Item main.js
+
+Set-Content main.js "const { app, BrowserWindow, Menu } = require('electron');
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
-height: 600,
-webPreferences: {
-nodeIntegration: true
-}
-});
+    height: 600,
+    menu: null, 
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false 
+    }
+  });
 
   win.loadFile('index.html');
 };
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+  Menu.setApplicationMenu(null); // removes menu bar
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -32,8 +44,10 @@ app.on('activate', () => {
     createWindow();
   }
 });"
-ni index.html
-sc index.html '<!DOCTYPE html>
+
+New-Item index.html
+
+Set-Content index.html '<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -43,8 +57,9 @@ sc index.html '<!DOCTYPE html>
   <p>hi</p>
 </body>
 </html>'
-sc package.json '{
-  "name": "electronApp",
+
+Set-Content package.json '{
+  "name": "electron-app",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
@@ -56,11 +71,16 @@ sc package.json '{
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "electron": "^36.2.1"
+    "electron": "^29.0.0"
   }
 }'
-Write-Host "click enter to start the app" -ForegroundColor Red
+
+Write-Host "click ENTER to start the app" -ForegroundColor Red
+
 pause
+
 npm start
-Write-Host "click enter to close terminal" -ForegroundColor Red
+
+Write-Host "click ENTER to close terminal" -ForegroundColor Red
+
 pause
