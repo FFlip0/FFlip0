@@ -1,7 +1,25 @@
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --primary: #eeeeee;
+    --secondary: #666666;
+    --background: #1f1e2e;
+    --background-secondary: #222222;
+
+    --old-primary: #eeeeee;
+    --old-secondary: #555;
+    --old-background: #111111;
+    --old-background-secondary: #222222;
+}
+
+#divider {
+    color: var(--primary);
+    margin: 0 0.4rem;
+}
 
 body {
-  color: rgb(255 255 255 / 90%);
+  color: var(--primary);
   font-family: ui-monospace, monospace;
   font-size: 12px;
   overflow: hidden;
@@ -14,8 +32,8 @@ body,
 }
 
 #root {
-  background: #000000;
-  border-bottom: 1px solid #a1a1a1;
+  background: var(--background); /* #000000;*/
+  /*border-bottom: 1px solid #a1a1a1;*/
 }
 
 .app {
@@ -23,8 +41,9 @@ body,
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   height: 100%;
-  padding: 4px 1.5vw;
+  padding: 4px 1rem;
 }
+
 
 .left,
 .center,
@@ -48,8 +67,21 @@ body,
 .memory,
 .cpu,
 .battery {
-  margin-right: 20px;
+  margin-right: 0px;
 }
+
+.logo, .battery, .tiling-direction {
+    display: none;
+}
+
+.battery, .date {
+    padding: 0.2rem 0.5rem;
+    color: var(--primary);
+    border-radius: 0.3rem;
+}
+
+
+
 
 .workspaces {
   display: flex;
@@ -57,21 +89,23 @@ body,
 }
 
 .workspace {
-  background: rgb(255 255 255 / 5%);
+  background: var(--background);
   margin-right: 4px;
-  padding: 4px 8px;
-  color: rgb(255 255 255 / 90%);
+  padding: 3px 6px;
+  color: var(--secondary);
   border: none;
   border-radius: 2px;
   cursor: pointer;
 
   &.displayed {
-    background: rgb(255 255 255 / 15%);
+    background: var(--background);
+    color: var(--primary);
   }
 
   &.focused,
   &:hover {
-    background: rgb(255 255 255 / 50%);
+    background: var(--background);
+    color: var(--primary);
   }
 }
 

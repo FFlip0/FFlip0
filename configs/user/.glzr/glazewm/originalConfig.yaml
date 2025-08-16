@@ -1,10 +1,5 @@
 # Normal Disabled
-## Disabled by me
-
-
-######################################################
-
-
+## Disabled By Me
 
 
 general:
@@ -57,10 +52,10 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '65px'
-    right: '25px'
-    bottom: '25px'
-    left: '25px'
+    top: '60px'
+    right: '20px'
+    bottom: '20px'
+    left: '20px'
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -69,8 +64,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#8dbcff' 
-      ## #8dbcff
+      color: '#8dbcff'
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -86,24 +80,24 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: true
+      enabled: false
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
-      opacity: '1'
+      opacity: '95%'
 
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
       enabled: true
-      color: '#1f1e2e'
+      color: '#a1a1a1'
     hide_title_bar:
       enabled: false
     corner_style:
       enabled: false
       style: 'square'
     transparency:
-      enabled: true
-      opacity: '0.9'
+      enabled: false
+      opacity: '0%'
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -130,25 +124,15 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - name: "one"
-    monitor: 1
-  - name: "two"
-    monitor: 2
-  - name: "three"
-    monitor: 1
-  - name: "four"
-    monitor: 2
-  - name: "five"
-    monitor: 1
-  - name: "six"
-    monitor: 2
-  - name: "seven"
-    monitor: 1
-  - name: "eight"
-    monitor: 2
-  - name: "nine"
-    monitor: 1
-
+  - name: '1'
+  - name: '2'
+  - name: '3'
+  - name: '4'
+  - name: '5'
+  - name: '6'
+  - name: '7'
+  - name: '8'
+  - name: '9'
 
 window_rules:
   - commands: ['ignore']
@@ -184,12 +168,10 @@ binding_modes:
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
 
-
-
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
-    bindings: ['alt+H', 'alt+left']
+    bindings: ['alt+h', 'alt+left']
   - commands: ['focus --direction right']
     bindings: ['alt+l', 'alt+right']
   - commands: ['focus --direction up']
@@ -209,13 +191,13 @@ keybindings:
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
-    bindings: ['alt+h']
+    bindings: ['alt+u']
   - commands: ['resize --width +2%']
-    bindings: ['alt+l']
+    bindings: ['alt+p']
   - commands: ['resize --height +2%']
-    bindings: ['alt+k']
+    bindings: ['alt+o']
   - commands: ['resize --height -2%']
-    bindings: ['alt+j']
+    bindings: ['alt+i']
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -272,8 +254,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  ###- commands: ['shell-exec wt']
-  - commands: ['shell-exec wezterm-gui']
+  - commands: ['shell-exec cmd']
     bindings: ['alt+enter']
 
   # Focus the next/previous active workspace defined in `workspaces` config.
@@ -287,23 +268,23 @@ keybindings:
     bindings: ['alt+d']
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace one']
+  - commands: ['focus --workspace 1']
     bindings: ['alt+1']
-  - commands: ['focus --workspace two']
+  - commands: ['focus --workspace 2']
     bindings: ['alt+2']
-  - commands: ['focus --workspace three']
+  - commands: ['focus --workspace 3']
     bindings: ['alt+3']
-  - commands: ['focus --workspace four']
+  - commands: ['focus --workspace 4']
     bindings: ['alt+4']
-  - commands: ['focus --workspace five']
+  - commands: ['focus --workspace 5']
     bindings: ['alt+5']
-  - commands: ['focus --workspace six']
+  - commands: ['focus --workspace 6']
     bindings: ['alt+6']
-  - commands: ['focus --workspace seven']
+  - commands: ['focus --workspace 7']
     bindings: ['alt+7']
-  - commands: ['focus --workspace eight']
+  - commands: ['focus --workspace 8']
     bindings: ['alt+8']
-  - commands: ['focus --workspace nine']
+  - commands: ['focus --workspace 9']
     bindings: ['alt+9']
 
   # Move the focused window's parent workspace to a monitor in a given
@@ -318,21 +299,21 @@ keybindings:
     bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace one', 'focus --workspace one']
+  - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
-  - commands: ['move --workspace two', 'focus --workspace two']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
     bindings: ['alt+shift+2']
-  - commands: ['move --workspace three', 'focus --workspace three']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
     bindings: ['alt+shift+3']
-  - commands: ['move --workspace four', 'focus --workspace four']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
     bindings: ['alt+shift+4']
-  - commands: ['move --workspace five', 'focus --workspace five']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace six', 'focus --workspace six']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
     bindings: ['alt+shift+6']
-  - commands: ['move --workspace seven', 'focus --workspace seven']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
     bindings: ['alt+shift+7']
-  - commands: ['move --workspace eight', 'focus --workspace eight']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
     bindings: ['alt+shift+8']
-  - commands: ['move --workspace nine', 'focus --workspace nine']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['alt+shift+9']
